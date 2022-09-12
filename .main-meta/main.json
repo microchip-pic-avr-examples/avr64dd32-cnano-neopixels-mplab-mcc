@@ -4,8 +4,8 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.avr64dd32-cnano-neopixels-mplab-mcc",
-        "version": " ",
-        "displayName": "",
+        "version": "1.0.0",
+        "displayName": "Getting Started with Neopixels using the AVR64DD32 Microcontroller using MCC Melody",
         "projectName": "avr64dd32-cnano-neopixels-mplab-mcc",
         "shortDescription": "Example code for using AVR64DD32 with neopixels",
         "ide": {
@@ -19,11 +19,11 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "AVR-Dx_DFP",
+            "semverRange": "^2.1.152"
         },
         "configurator": {
-            "name": "",
+            "name": "MCC",
             "semverRange": ""
         },
         "device": {
@@ -36,9 +36,19 @@
                 "versionRange": "*"
             }
         },
-        "author": "Teodor-Emilian Petre",
-        "peripherals": [],
-        "keywords": [],
+        "author": "Cosmin Stanciu",
+        "peripherals": [
+			"CCL",
+			"EVSYS",
+			"SPI",
+			"TCA",
+			"USART"
+		],
+        "keywords": [
+			"Getting Started",
+			"Neopixels",
+			"Melody"
+		],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",

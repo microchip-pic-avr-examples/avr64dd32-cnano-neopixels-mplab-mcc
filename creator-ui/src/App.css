@@ -1,0 +1,19 @@
+.App {
+  width: 860px;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 3px;
+  cursor: pointer;
+}
