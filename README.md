@@ -1,4 +1,4 @@
-﻿[![MCHP](images/Microchip.png)](https://www.microchip.com)
+﻿[![MCHP](images/microchip.png)](https://www.microchip.com)
 
 # Getting Started with Neopixels using the AVR64DD32 Microcontroller using MCC Melody
 
