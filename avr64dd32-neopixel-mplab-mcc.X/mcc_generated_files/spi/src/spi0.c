@@ -5,12 +5,12 @@
   *
   * @ingroup spi0
   *
-  * @brief This file contains the driver code for SPI0 module.
+  * @brief Contains the API Implementations for SPI0 module.
   *
-  * version SPI0 Driver Version 2.0.1
+  * @version SPI0 Driver Version 2.0.1
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -40,8 +40,7 @@ typedef struct spi0_descriptor_s
 /**
   SPI0_DRIVER_FUNCTION object 
 
-  @Summary
-    Defines an object for SPI_DRIVER_FUNCTIONS.
+  @brief Defines an object for SPI_DRIVER_FUNCTIONS.
  */
 const struct SPI_INTERFACE SPI0_s = 
 {
@@ -58,7 +57,7 @@ const struct SPI_INTERFACE SPI0_s =
 
 SPI0_configuration_t spi0_configurations[] =
 {
-    { 0x35, 0x5 }
+    { 0x35, 0x1 }
 };
 
 static spi0_descriptor_t spi0_desc;
@@ -66,7 +65,7 @@ static spi0_descriptor_t spi0_desc;
 void SPI0_Initialize(void)
 {
     //BUFEN disabled; BUFWR disabled; MODE 1; SSD disabled; 
-    SPI0.CTRLB = 0x05;
+    SPI0.CTRLB = 0x1;
 
     //CLK2X enabled; DORD disabled; ENABLE enabled; MASTER enabled; PRESC DIV64; 
     SPI0.CTRLA = 0x35;
@@ -117,8 +116,8 @@ uint8_t SPI0_ByteExchange(uint8_t data)
 bool SPI0_Selected(void)
 {
 /**
- * \brief returns true if SS pin is selected 
- * TODO: Place your code
+ * @brief Returns true if SS pin is selected. 
+ * TODO: Place your code here
  */
 return true;
 }

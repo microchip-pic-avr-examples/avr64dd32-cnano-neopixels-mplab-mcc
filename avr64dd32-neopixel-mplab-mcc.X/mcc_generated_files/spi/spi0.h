@@ -3,14 +3,14 @@
  *
  * @file spi0.h
  *
- * defgroup spi0 SPI0
+ * @defgroup spi0 SPI0
  *
- * @brief This header file provides APIs for the SPI0 driver.
+ * @brief Contains the API prototypes for the SPI0 driver.
  *
  * @version SPI0 Driver Version 2.0.1
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -46,19 +46,17 @@ extern const struct SPI_INTERFACE SPI0_s;
 /**
  * @ingroup spi0
  * @typedef void *spi0_TRANSFER_DONE_CB
- * @brief Function pointer to callback function called by SPI IRQ. NULL=default value: No callback function is to be used.
+ * @brief Function pointer to the callback function called when there is an SPI interrupt. The default value is set to NULL which means that no callback function will be used.
  */ 
 typedef void (*spi0_TRANSFER_DONE_CB)(void);
 
 /**
  * @ingroup spi0
  * @typedef struct SPI0_configuration_t
- * @brief hardware stuff that controls SPI mode and baud rate
+ * @brief Hardware configuration that controls SPI mode and baud rate
  */
 typedef struct 
 {
-    // hardware stuff that controls SPI mode
-    // hardware stuff that controls SPI baud rate
     uint8_t CTRLAvalue;
     uint8_t CTRLBvalue;
 } SPI0_configuration_t; 
@@ -66,7 +64,7 @@ typedef struct
 /**
  * @ingroup spi0
  * @typedef enum spi0_transfer_type_t
- * @brief Specify whether the SPI transfer is to be uni- or bidirectional. A bidirectional transfer (=SPI_EXCHANGE) causes the received data to overwrite the buffer with the data to transmit.
+ * @brief Specifies whether the SPI transfer is to be uni- or bidirectional. A bidirectional transfer (=SPI_EXCHANGE) causes the received data to overwrite the buffer with the data to transmit.
  */
 typedef enum spi0_transfer_type 
 {
@@ -103,110 +101,110 @@ typedef enum
 
  /**
  * @ingroup spi0
- * @brief Initialize SPI interface.
- * @param none
- * @return none
+ * @brief Initializes the SPI module.
+ * @param None.
+ * @return None.
  */
 void SPI0_Initialize(void);
 
 /**
  * @ingroup spi0
- * @brief Enables the SPI module and enables the clock to the SPI by control register.
- * @param none
- * @return none
+ * @brief Enables the SPI module.
+ * @param None.
+ * @return None.
  */ 
 void SPI0_Enable(void);
 
 /**
  * @ingroup spi0
- * @brief Disables the SPI module and disables the clock to the SPI by control register.
- * @param none
- * @return none
+ * @brief Disables the SPI module.
+ * @param None.
+ * @return None.
  */ 
 void SPI0_Disable(void);
 
 /**
  * @ingroup spi0
  * @brief Sets the index of Configuration to use in the transfer.
- * @param uint8_t spiConfigIndex - The configuration index
- * @retval true  - The SPI open was successful
- * @retval false - The SPI open was not successful
+ * @param uint8_t spiConfigIndex - Configuration index. See SPI0_configuration_name_t for configuration list.
+ * @retval True  - SPI open was successful.
+ * @retval False - SPI open was not successful.
  */
 bool SPI0_Open(uint8_t spiConfigIndex);
 
 /**
  * @ingroup spi0
- * @brief Close the SPI for communication.
- * @param none
- * @return none
+ * @brief Closes the SPI for communication.
+ * @param None.
+ * @return None.
  */
 void SPI0_Close(void);
 
 /**
  * @ingroup spi0
- * @brief Exchange one byte over SPI. Blocks until done.
- * @param uint8_t byteData - The byte to transfer
+ * @brief Exchanges one byte over SPI. Blocks until done.
+ * @param uint8_t byteData - The byte to transfer.
  * @return uint8_t - Received data byte.
  */
 uint8_t SPI0_ByteExchange(uint8_t byteData);
 
 /**
  * @ingroup spi0
- * @brief Exchange a buffer over SPI. Blocks if using polled driver.
- * @param[inout] void * bufferData The buffer to transfer. Received data is returned here
- * @param[in] size_t bufferSize The size of buffer to transfer
- * @return none
+ * @brief Exchanges a buffer over SPI. Blocks if using polled driver.
+ * @param[inout] void * bufferData The buffer to transfer. Received data is returned here.
+ * @param[in] size_t bufferSize The size of buffer to transfer.
+ * @return None.
  */
 void SPI0_BufferExchange(void * bufferData, size_t bufferSize);
 
 /**
  * @ingroup spi0
- * @brief Write a buffer over SPI. Blocks if using polled driver.
- * @param[in] void * bufferData The buffer to transfer
- * @param[in] size_t bufferSize The size of buffer to transfer
- * @return none
+ * @brief Writes a buffer over SPI. Blocks if using polled driver.
+ * @param[in] void * bufferData The buffer to transfer.
+ * @param[in] size_t bufferSize The size of buffer to transfer.
+ * @return None.
  */
 void SPI0_BufferWrite(void * bufferData, size_t bufferSize);
 
 /**
  * @ingroup spi0
- * @brief Read a buffer over SPI. Blocks if using polled driver.
+ * @brief Reads a buffer over SPI. Blocks if using polled driver.
  * @param[out] void * bufferData Received data is written here.
- * @param[in] size_t bufferSize The size of buffer to transfer
- * @return none
+ * @param[in] size_t bufferSize The size of buffer to transfer.
+ * @return None.
  */
 void SPI0_BufferRead(void * bufferData, size_t bufferSize);
 
 /**
  * @ingroup spi0
- * @brief Write data byte to SPI.
+ * @brief Writes a data byte to SPI.
  * @param uint8_t byteData The byte to transfer.
- * @return none
+ * @return None.
  */
 void SPI0_ByteWrite(uint8_t byteData);
 
 /**
  * @ingroup spi0
- * @brief Get received data byte from SPI.
- * @param none
- * @return uint8_t - The received data
+ * @brief Gets the received data byte from SPI.
+ * @param None.
+ * @return uint8_t - The received data byte.
  */
 uint8_t SPI0_ByteRead(void);
 
 /**
  * @ingroup spi0
- * @brief Check if SPI CLIENT is selected, i.e. its SS has been asserted.
- * @param none
- * @retval true - SPI is selected
- * @retval false - SPI is not selected
+ * @brief Checks if SPI CLIENT is selected, i.e. its SS pin has been asserted.
+ * @param None.
+ * @retval True - SPI is selected.
+ * @retval False - SPI is not selected.
  */
 bool SPI0_Selected(void);
 
 /**
  * @ingroup spi0
- * @brief Wait until SPI has recaived a data byte
- * @param none
- * @return none
+ * @brief Waits until SPI has received a data byte.
+ * @param None.
+ * @return None.
  */
 void SPI0_WaitDataready(void);
 

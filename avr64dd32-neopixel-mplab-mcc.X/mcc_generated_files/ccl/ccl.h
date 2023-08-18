@@ -5,7 +5,7 @@
  * 
  * @defgroup  ccl CCL
  * 
- * @brief This is the generated header file for the CCL driver. 
+ * @brief This file contains the API prototype for the CCL driver. 
  *
  * @version Driver Version  1.1.0
 */
@@ -24,11 +24,10 @@ extern "C" {
 
 /**
  * @ingroup  ccl
- * @brief Initializes the CCL.
- *        This routine should only be called once during system initialization.
- * @pre none
- * @param none.
- * @return none
+ * @brief Initializes the CCL. This is called only once during the system initialization.
+ * @pre None.
+ * @param None.
+ * @return None.
  */
 int8_t CCL_Initialize(void);
 

@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * GAS Header File
+ * 
+ * @file gas.h
+ * 
+ * @ingroup config_bitsdriver 
+ * 
+ * @brief This file contains the generated GAS header file for the Configuration bits driver.
+ *
+ * @version Driver Version 1.0.0
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

@@ -4,13 +4,13 @@
  *
  * @defgroup evsys_driver Event System
  *
- * @brief This file contains API prototypes and other datatypes for EVSYS driver.
+ * @brief This file contains API prototypes for EVSYS driver.
  *
- * @version EVSYS Driver Version 1.0.1
+ * @version EVSYS Driver Version 1.1.0
  */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -30,26 +30,33 @@
     THIS SOFTWARE.
 */
 
-
 #ifndef EVSYS_H_INCLUDED
 #define EVSYS_H_INCLUDED
 
 #include "../system/utils/compiler.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * @ingroup evsys_driver
- * @brief This API initializes the EVSYS driver. 
+ * @brief Initializes the EVSYS driver. 
  * @param none
  * @return none
  */
 int8_t EVSYS_Initialize(void);
 
-#ifdef __cplusplus
-}
-#endif
+/**
+ * @ingroup evsys_driver
+ * @brief Updates the SWEVENTA register.
+ * @param channel - 8-bit integer representing event channel that generates a software event. For example to select CH0(CHANNEL0) set value as 0x1.
+ * @return none
+ */
+void EVSYS_SoftwareEventASet(uint8_t channel);
 
-#endif /* CCL_H_INCLUDED */
+/**
+ * @ingroup evsys_driver
+ * @brief Updates the SWEVENTB register.
+ * @param channel - 8-bit integer representing event channel that generates a software event. For example to select CH8(CHANNEL8) set value as 0x1.
+ * @return none
+ */
+void EVSYS_SoftwareEventBSet(uint8_t channel);
+
+#endif /* EVSYS_H_INCLUDED */

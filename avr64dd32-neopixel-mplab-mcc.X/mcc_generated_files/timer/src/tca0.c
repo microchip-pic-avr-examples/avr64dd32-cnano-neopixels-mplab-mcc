@@ -3,14 +3,14 @@
   *
   * @file tca0.c
   *
-  * @ingroup tca0
+  * @ingroup tca0_normal
   *
-  * @brief This file contains the driver code for TCA0 module.
+  * @brief This file contains the API implementations for TCA0 module driver in Normal (16-bit) mode.
   *
   * @version TCA0 Driver Version 2.1.1
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -35,8 +35,8 @@
 
 const struct TMR_INTERFACE TCA0_Interface = {
     .Initialize = TCA0_Initialize,
-    .Start = NULL,
-    .Stop = NULL,
+    .Start = TCA0_Start,
+    .Stop = TCA0_Stop,
     .PeriodCountSet = TCA0_Write,
     .TimeoutCallbackRegister = TCA0_OverflowCallbackRegister,
     .Tasks = NULL
@@ -126,18 +126,18 @@ ISR(TCA0_OVF_vect)
 
 void TCA0_Initialize(void) {
     // Compare 0
-    TCA0.SINGLE.CMP0 = 0x0A;
+    TCA0.SINGLE.CMP0 = 0xA;
         
     // Compare 1
-    TCA0.SINGLE.CMP1 = 0x00;
+    TCA0.SINGLE.CMP1 = 0x0;
     
     // Compare 2
-    TCA0.SINGLE.CMP2 = 0x12;
+    TCA0.SINGLE.CMP2 = 0x11;
         
     // Count
-    TCA0.SINGLE.CNT = 0x00;
+    TCA0.SINGLE.CNT = 0x0;
     
-    // ALUPD disabled; CMP0EN enabled; CMP1EN enabled; CMP2EN enabled; WGMODE SINGLESLOPE; 
+    // ALUPD disabled; CMP0EN enabled; CMP1EN disabled; CMP2EN enabled; WGMODE SINGLESLOPE; 
     TCA0.SINGLE.CTRLB = 0x53;
     
     // CMP0OV disabled; CMP1OV disabled; CMP2OV disabled; 
@@ -161,8 +161,8 @@ void TCA0_Initialize(void) {
     // DBGRUN disabled; 
     TCA0.SINGLE.DBGCTRL = 0x0;
     
-    // CNTAEI disabled; CNTBEI disabled; EVACTA CNT_POSEDGE; EVACTB NONE; 
-    TCA0.SINGLE.EVCTRL = 0x96;
+    // CNTAEI disabled; CNTBEI enabled; EVACTA CNT_POSEDGE; EVACTB RESTART_POSEDGE; 
+    TCA0.SINGLE.EVCTRL = 0x90;
     
     // CMP0 disabled; CMP1 disabled; CMP2 disabled; OVF disabled; 
     TCA0.SINGLE.INTCTRL = 0x0;
@@ -177,7 +177,7 @@ void TCA0_Initialize(void) {
     TCA0.SINGLE.TEMP = 0x0;
     
     // CLKSEL DIV1; ENABLE enabled; RUNSTDBY disabled; 
-    TCA0.SINGLE.CTRLA = 0x01;
+    TCA0.SINGLE.CTRLA = 0x1;
     
 }
 
@@ -193,7 +193,7 @@ void TCA0_Stop(void)
 
 void TCA0_Write(uint16_t timerVal)
 {
-    TCA0.SINGLE.CNT=timerVal;
+    TCA0.SINGLE.PER=timerVal;
 }
 
 uint16_t TCA0_Read(void)

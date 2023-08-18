@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * protected_io Source Code File
+ * 
+ * @file protected_io.S
+ * 
+ * @ingroup config_bitsdriver 
+ * 
+ * @brief This file contains the generated protected_io source code file for the CONFIGURATION BITS.
+ *
+ * @version Driver Version 1.0.0
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

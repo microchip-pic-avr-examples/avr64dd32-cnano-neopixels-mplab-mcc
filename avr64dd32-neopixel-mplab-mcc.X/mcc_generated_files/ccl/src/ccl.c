@@ -5,13 +5,13 @@
  * 
  * @ingroup  ccl
  * 
- * @brief This is the generated driver implementation file for the CCL driver. 
+ * @brief This file contains the API implementations for the CCL driver. 
  *
  * @version Driver Version 1.1.1
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

@@ -1,17 +1,17 @@
 /**
- * Interrupt Manager Generated Driver File
+ * Interrupt Manager Generated Driver File.
  *
  * @file interrupt.c
  * 
  * @ingroup interrupt 
  * 
- * @brief This file contains the driver code for Interrupt Manager.
+ * @brief This file contains the API implementation for the Interrupt Manager.
  * 
  * @version Interrupt Manager Driver Version 1.0.0
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

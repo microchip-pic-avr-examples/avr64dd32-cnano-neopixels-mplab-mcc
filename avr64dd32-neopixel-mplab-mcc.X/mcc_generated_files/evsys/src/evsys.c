@@ -6,11 +6,11 @@
  *
  * @brief This file contains the implementation for EVSYS driver
  *
- * @version EVSYS Driver Version 1.0.1
+ * @version EVSYS Driver Version 1.1.0
  */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -30,7 +30,6 @@
     THIS SOFTWARE.
 */
 
-
 #include "../evsys.h"
 
 int8_t EVSYS_Initialize()
@@ -47,8 +46,6 @@ int8_t EVSYS_Initialize()
     EVSYS.CHANNEL4 = 0x0;
     //CHANNEL5 OFF; 
     EVSYS.CHANNEL5 = 0x0;
-    //SWEVENTA CH0; 
-    EVSYS.SWEVENTA = 0x1;
     //USER OFF; 
     EVSYS.USERADC0START = 0x0;
     //USER OFF; 
@@ -69,8 +66,8 @@ int8_t EVSYS_Initialize()
     EVSYS.USERCCLLUT3B = 0x0;
     //USER OFF; 
     EVSYS.USEREVSYSEVOUTA = 0x0;
-    //USER CHANNEL0; 
-    EVSYS.USERTCA0CNTA = 0x1;
+    //USER OFF; 
+    EVSYS.USERTCA0CNTA = 0x0;
     //USER CHANNEL0; 
     EVSYS.USERTCA0CNTB = 0x1;
     //USER OFF; 
@@ -99,9 +96,14 @@ int8_t EVSYS_Initialize()
     EVSYS.USERTCD0INPUTA = 0x0;
     //USER OFF; 
     EVSYS.USERTCD0INPUTB = 0x0;
-    //SWEVENTB CH8; 
-    EVSYS.SWEVENTB = 0x0;
-    
     
     return 0;
+}
+
+void EVSYS_SoftwareEventASet(uint8_t channel){
+    EVSYS.SWEVENTA = channel;
+} 
+
+void EVSYS_SoftwareEventBSet(uint8_t channel){
+    EVSYS.SWEVENTB = channel;
 }

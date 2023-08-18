@@ -3,14 +3,14 @@
  *
  * @file tca0.h
  *
- * @defgroup tca0 TCA0
+ * @defgroup tca0_normal TCA0 in Normal Mode
  *
- * @brief This header file provides APIs for the TCA0 driver.
+ * @brief This file contains the API prototypes for the TCA0 driver in Normal (16-bit) mode.
  *
  * @version TCA0 Driver Version 2.1.1
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -45,149 +45,150 @@ extern "C" {
 #endif
 
 /**
- * @ingroup tca0
+ * @ingroup tca0_normal
  * @typedef void TCA0_cb_t
- * @brief Function pointer to callback function called by TCA. NULL=default value: No callback function is to be used.
+ * @brief Function pointer to the callback function called by TCA when operating in Normal mode. The default value is set to NULL which means that no callback function will be used.
  */  
-typedef void (*TCA0_cb_t)(void);    
+typedef void (*TCA0_cb_t)(void);
 
 extern const struct TMR_INTERFACE TCA0_Interface;
 
 /**
- * @ingroup tca0
- * @brief Initialize TCA interface.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Initializes the TCA.
+ * @param None.
+ * @return None.
  */ 
 void TCA0_Initialize(void);
 /**
- * @ingroup tca0
- * @brief API to start the 16-bit timer/counter for TCA interface.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Starts the 16-bit timer/counter for the TCA.
+ * @param None.
+ * @return None.
  */
 void TCA0_Start(void);
 /**
- * @ingroup tca0
- * @brief API to stop the 16-bit timer/counter for TCA interface
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Stops the 16-bit timer/counter for the TCA.
+ * @param None.
+ * @return None.
  */
 void TCA0_Stop(void);
 /**
- * @ingroup tca0
- * @brief ISR callback function register to be called if overflow interrupt flag is set.
- * @param TCA0_cb_t cb - call back value for overflow.
- * @return none
+ * @ingroup tca0_normal
+ * @brief Interrupt Service Routine (ISR) callback function register to be called if the Overflow Interrupt flag is set.
+ * @param TCA0_cb_t cb - Callback function for Overflow event.
+ * @return None.
  */ 
 void TCA0_OverflowCallbackRegister(TCA0_cb_t cb);
 /**
- * @ingroup tca0
- * @brief ISR callback function to be called if Compare 0 match interrupt flag is set.
- * @param TCA0_cb_t cb - call back value for compare 0.
- * @return none
+ * @ingroup tca0_normal
+ * @brief ISR callback function to be called if the Compare 0 Match Interrupt flag is set.
+ * @param TCA0_cb_t cb - Callback function for Compare 0 match event.
+ * @return None.
  */ 
 void TCA0_Compare0CallbackRegister(TCA0_cb_t cb);
 /**
- * @ingroup tca0
- * @brief ISR callback function to be called if Compare 1 match interrupt flag is set.
- * @param TCA0_cb_t cb - call back value for compare 1.
- * @return none
+ * @ingroup tca0_normal
+ * @brief ISR callback function to be called if the Compare 1 Match Interrupt flag is set.
+ * @param TCA0_cb_t cb - Callback function for Compare 1 match event.
+ * @return None.
  */ 
 void TCA0_Compare1CallbackRegister(TCA0_cb_t cb);
 /**
- * @ingroup tca0
- * @brief ISR callback function to be called if Compare 2 match interrupt flag is set.
- * @param TCA0_cb_t cb - call back value for compare 2.
- * @return none
+ * @ingroup tca0_normal
+ * @brief ISR callback function to be called if the Compare 2 Match Interrupt flag is set.
+ * @param TCA0_cb_t cb - Callback function for Compare 2 match event.
+ * @return None.
  */ 
 void TCA0_Compare2CallbackRegister(TCA0_cb_t cb);
 /**
- * @ingroup tca0
- * @brief Enable the 16-bit Timer/Counter interrupt for TCA interface.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Enables the 16-bit timer/counter interrupt for the TCA.
+ * @param None.
+ * @return None.
  */
 void TCA0_EnableInterrupt(void);
 /**
- * @ingroup tca0
- * @brief Disable the 16-bit Timer/Counter interrupt for TCA interface.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Disables the 16-bit timer/counter interrupt for the TCA.
+ * @param None.
+ * @return None.
  */
 void TCA0_DisableInterrupt(void);
 /**
- * @ingroup tca0
- * @brief API to read the 16-bit timer/counter value for TCA interface.
- * @param none
- * @return uint16_t - timer/counter value returns from the TCA0 interface.
+ * @ingroup tca0_normal
+ * @brief Reads the 16-bit timer/counter value for the TCA.
+ * @param None.
+ * @return uint16_t - timer/counter value returns from the TCA0.
  */
 uint16_t TCA0_Read(void);
 /**
- * @ingroup tca0
- * @brief API to write the timer value to load for TCA.
- * @param uint16_t timerVal - Loading the timer value for TCA.
- * @return none
+ * @ingroup tca0_normal
+ * @brief Writes the timer value to load to the TCA.
+ * @param uint16_t timerVal - Loading the timer value for the TCA.
+ * @return None.
  */
 void TCA0_Write(uint16_t timerVal);
 /**
- * @ingroup tca0
- * @brief Clearing the Overflow interrupt flag after the overflow flag set.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Clears the Overflow Interrupt flag after the Overflow flag set.
+ * @param None.
+ * @return None.
  */
 void TCA0_ClearOverflowInterruptFlag(void);
 /**
- * @ingroup tca0
- * @brief To verify the Overflow interrupt flag status for TCA interface.
- * @param none
- * @retval true  - Overflow interrupt flag was set.
- * @retval false - Overflow interrupt flag was not set.
+ * @ingroup tca0_normal
+ * @brief Checks the Overflow Interrupt flag status for the TCA.
+ * @param None.
+ * @retval True  - Overflow Interrupt flag is set.
+ * @retval False - Overflow Interrupt flag is not set.
  */
 bool TCA0_IsOverflowInterruptFlagSet(void);
 /**
- * @ingroup tca0
- * @brief Clearing the Compare 0 interrupt flag after the compare 0 flag set.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Clears the Compare 0 Interrupt flag after the Compare 0 flag is set.
+ * @param None.
+ * @return None.
  */
 void TCA0_ClearCMP0InterruptFlag(void);
 /**
- * @ingroup tca0
- * @brief To verify the compare 0 interrupt flag status for TCA interface.
- * @param none
- * @retval true  - compare 0 interrupt flag was set.
- * @retval false - compare 0 interrupt flag was not set.
+ * @ingroup tca0_normal
+ * @brief Checks the Compare 0 Interrupt flag status for the TCA.
+ * @param None.
+ * @retval True  - Compare 0 Interrupt flag is set.
+ * @retval False - Compare 0 Interrupt flag is not set.
  */
 bool TCA0_IsCMP0InterruptFlagSet(void);
 /**
- * @ingroup tca0
- * @brief Clearing the Compare 1 interrupt flag after the compare 0 flag set.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Clears the Compare 1 Interrupt flag after the Compare 1 flag is set.
+ * @param None.
+ * @return None.
  */
 void TCA0_ClearCMP1InterruptFlag(void);
 /**
- * @ingroup tca0
- * @brief To verify the compare 1 interrupt flag status for TCA interface.
- * @param none
- * @retval true  - compare 1 interrupt flag was set.
- * @retval false - compare 1 interrupt flag was not set.
+ * @ingroup tca0_normal
+ * @brief Checks the Compare 1 Interrupt flag status for the TCA.
+ * @param None.
+ * @retval True  - Compare 1 Interrupt flag is set.
+ * @retval False - Compare 1 Interrupt flag is not set.
  */
 bool TCA0_IsCMP1InterruptFlagSet(void);
 /**
- * @ingroup tca0
- * @brief Clearing the Compare 2 interrupt flag after the compare 2 flag set.
- * @param none
- * @return none
+ * @ingroup tca0_normal
+ * @brief Clears the Compare 2 Interrupt flag after the Compare 2 flag is set.
+ * @param None.
+ * @return None.
  */
 void TCA0_ClearCMP2InterruptFlag(void);
+
 /**
- * @ingroup tca0
- * @brief To verify the compare 2 interrupt flag status for TCA interface.
- * @param none
- * @retval true  - compare 2 interrupt flag was set.
- * @retval false - compare 2 interrupt flag was not set.
+ * @ingroup tca0_normal
+ * @brief Checks the Compare 2 Interrupt flag status for the TCA.
+ * @param None.
+ * @retval True  - Compare 2 Interrupt flag is set.
+ * @retval False - Compare 2 Interrupt flag is not set.
  */
 bool TCA0_IsCMP2InterruptFlagSet(void);
 

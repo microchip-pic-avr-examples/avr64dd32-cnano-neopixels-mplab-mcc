@@ -4,12 +4,8 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>avr64dd32-neopixel-mplab-mcc</name>
-            <creation-uuid>9a9f4c78-463c-44df-9681-6e5e1becae27</creation-uuid>
+            <creation-uuid>fe0c0f6a-8aa2-428e-8bf3-5caf4a457aa9</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions>c</c-extensions>
-            <cpp-extensions/>
-            <header-extensions>h</header-extensions>
-            <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>

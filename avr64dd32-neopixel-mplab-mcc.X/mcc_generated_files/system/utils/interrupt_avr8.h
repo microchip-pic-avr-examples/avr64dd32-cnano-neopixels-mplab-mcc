@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * interrupt_avr8 Header File
+ * 
+ * @file interrupt_avr8.h
+ * 
+ * @defgroup doc_driver_utils_interrupts ISR abstraction
+ *
+ * @brief Interrupt-related functionality.
+ *
+ * @version Driver Version 1.0.0
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -28,16 +30,6 @@
     THIS SOFTWARE.
 */
 
-
-/**
- * \defgroup doc_driver_utils_interrupts ISR abstraction
- * \ingroup doc_driver_utils
- *
- * Interrupt-related functionality.
- *
- * \{
- */
-
 #ifndef UTILS_INTERRUPT_AVR8_H
 #define UTILS_INTERRUPT_AVR8_H
 
@@ -52,18 +44,16 @@
 #else
 
 /**
- * \def ISR
- * \brief Define service routine for specified interrupt vector
- *
- * Usage:
- * \code
+ * @def ISR
+ * @brief Define service routine for specified interrupt vector.
+ * @code
     ISR(FOO_vect)
     {
         ...
     }
-\endcode
+ * @endcode
  *
- * \param vect Interrupt vector name as found in the device header files.
+ * @param vect Interrupt vector name as found in the device header files.
  */
 #if defined(__DOXYGEN__)
 #define ISR(vect)
